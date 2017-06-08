@@ -1,0 +1,18 @@
+version: "3.1"
+
+services:
+  builder:
+    build: .
+    image: dtr.dev.acme.dckr.org/atsea/builder
+
+  node:
+    build: 
+      context: ../
+      dockerfile: builder/Dockerfile.node
+    image: dtr.dev.acme.dckr.org/atsea/node-base
+
+  maven:
+    build:
+      context: ../
+      dockerfile: builder/Dockerfile.maven
+    image: dtr.dev.acme.dckr.org/atsea/maven-base
